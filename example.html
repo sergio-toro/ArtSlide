@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/j.simpleslide.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/j.simpleslide.js"></script>
+        <title>Simple slide</title>
+
+        <style type="text/css">
+            /*********************************************************************
+             * REQUIRED CSS TO WORK (if width and height are ommited at js method)
+             ********************************************************************/
+            #slide-container {
+                width: 800px;
+                height: 250px;
+            }
+
+            /*********************************************************************
+             * STYLESHEET FOR DEMO
+             ********************************************************************/
+            body { padding: 100px; }
+            #slide-container { border: 2px solid #000; margin: auto; width: 800px; height: 250px; }
+
+            h2 { margin: 0 0 10px 0; }
+            p { margin: 0px; font: normal 14px/25px Arial; }
+
+            .item { width: 750px; height: 175px; padding: 50px 25px 25px; }
+            .darkred{ background: darkred; }
+            .darkgreen{ background: darkgreen; }
+            .darkgreen p, .darkred p, label,.darkred h2 { color: #FFF; }
+            .right_image{ float: right; margin: 0 0 10px 15px; }
+        </style>
+    </head>
+    <body>
+        <!--
+            DEMO FOR COMPLEX SLIDE THE ONLY NEEDED MARKUP IS:
+            <div class="simpleslide">
+                <*></*>
+            </div>
+        -->
+        <div id="slide-container">
+            <img src="img/large800x250.jpg" alt="Sample large image" />
+            <div class="item">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <p>In pretium neque vitae ipsum rutrum nec tincidunt felis dapibus. <b>Ut cursus augue ac orci vehicula facilisis.</b> Proin lacinia condimentum tortor, at porttitor sem dignissim eget. Mauris eget nisl sit amet dui pellentesque mollis in non tortor. Praesent ligula diam, hendrerit eu rutrum ac, auctor vitae turpis. Nam sit amet enim vel risus dignissim luctus nec eu leo. Donec consequat imperdiet magna, quis consequat mauris pretium vulputate. Donec molestie blandit augue, placerat dapibus risus tristique nec. Proin in eros velit, vestibulum euismod neque. </p>
+            </div>
+            <div class="item darkgreen">
+                <p><img src="img/small250x100.jpg" class="right_image" alt="Sample small image" />Praesent in urna a orci rutrum molestie at sollicitudin leo. Nunc a orci et leo placerat laoreet eget viverra risus. Integer ac nisl non mi tincidunt vulputate vitae nec augue. Vestibulum vel sem non quam porta adipiscing. Praesent vehicula hendrerit odio, vel sagittis felis porttitor et. Phasellus eros magna, pharetra in ultrices hendrerit, posuere et erat. Quisque id nibh risus. Mauris et velit non justo venenatis pellentesque et eu nibh. Proin ac purus magna. Ut orci nisl, mattis in mattis nec, blandit a ipsum. Phasellus non turpis neque, et vulputate nulla. Integer gravida neque vel nulla porta egestas. </p>
+            </div>
+            <div class="item darkred">
+                <img src="img/medium400x175.jpg" class="right_image" alt="Sample medium image" />
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <form method="post" action="">
+                    <label>Email:</label>
+                    <input type="text" name="email" size="15" />
+                    <br /><br />
+                    <label>Name</label>
+                    <input type="text" name="name" size="15" />
+                    <br /><br />
+                    <input type="submit" name="contact" value="Submit" />
+                </form>
+
+            </div>
+        </div>
+		
+        <script type="text/javascript">
+            $(function(){
+                /*********************************************************************
+                 * INIT simpleslide
+                 ********************************************************************/
+                $("#slide-container").simpleslide();
+            });
+        </script>
+    </body>
+</html>

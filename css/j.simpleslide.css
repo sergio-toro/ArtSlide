@@ -1,0 +1,21 @@
+/* User stylesheet */
+.ss-main-container a.ss-nav-trigger { text-decoration: none; opacity: 0.7; background: #FFF; box-shadow: 1px 1px 2px 0 #000; }
+.ss-main-container a.ss-nav-trigger:last-child{ margin-right: 0px; }
+.ss-main-container a.ss-nav-trigger:hover, .ss-main-container a.ss-nav-selected { opacity: 1; }
+
+.ss-main-container a.ss-control { text-decoration: none; opacity: 0.7; color: #FFFFFF; font: 45px/20px Arial; height: 25px; text-shadow: 1px 1px 2px #000000; top: 15px; }
+.ss-main-container a.ss-control:hover { opacity: 1; }
+.ss-main-container a.ss-control-previous { left: 15px; }
+.ss-main-container a.ss-control-next { right: 15px; }
+
+.ss-main-container div.ss-nav-container{ bottom: 10px; right: 20px; }
+.ss-main-container a.ss-nav-trigger { margin-right: 12px; width: 16px; height: 16px; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px;}
+
+/* NEEDED MARKUP FOR PLUGUIN */
+.ss-main-container{ position: relative; }
+.ss-main-container .ss-container { position: relative; overflow: hidden; }
+.ss-main-container .ss-container ul.ss-list-container { position: absolute; margin: 0px; padding: 0px; list-style: none; top: 0px; left: 0px; clear: both; }
+.ss-main-container .ss-container li.ss-list-item { display: block; margin: 0px; padding: 0px; list-style: none; float: left; }
+.ss-main-container div.ss-nav-container{ position: absolute; }
+.ss-main-container a.ss-nav-trigger { outline: none; display: block; float: left; }
+.ss-main-container a.ss-control { display: block; position: absolute; }
