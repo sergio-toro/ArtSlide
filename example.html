@@ -2,16 +2,17 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" href="css/j.simpleslide.css" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-        <script type="text/javascript" src="js/j.simpleslide.js"></script>
         <title>Simple slide</title>
+
+        <link rel="stylesheet" type="text/css" href="css/j.artslide.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/j.artslide.js"></script>
 
         <style type="text/css">
             /*********************************************************************
              * REQUIRED CSS TO WORK (if width and height are ommited at js method)
              ********************************************************************/
-            #slide-container {
+            div.example {
                 width: 800px;
                 height: 250px;
             }
@@ -20,7 +21,7 @@
              * STYLESHEET FOR DEMO
              ********************************************************************/
             body { padding: 100px; }
-            #slide-container { border: 2px solid #000; margin: auto; width: 800px; height: 250px; }
+            div.example { margin: auto; width: 800px; height: 250px; }
 
             h2 { margin: 0 0 10px 0; }
             p { margin: 0px; font: normal 14px/25px Arial; }
@@ -39,7 +40,7 @@
                 <*></*>
             </div>
         -->
-        <div id="slide-container">
+        <div class="example">
             <img src="img/large800x250.jpg" alt="Sample large image" />
             <div class="item">
                 <h2>Lorem ipsum dolor sit amet</h2>
@@ -63,13 +64,13 @@
 
             </div>
         </div>
-		
+
         <script type="text/javascript">
             $(function(){
                 /*********************************************************************
                  * INIT simpleslide
                  ********************************************************************/
-                $("#slide-container").simpleslide();
+                $("div.example").artslide();
             });
         </script>
     </body>

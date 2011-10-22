@@ -6,7 +6,7 @@
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  */
 (function($){
-    $.fn.simpleslide = function(options){
+    $.fn.artslide = function(options){
         var s = {
             speed: 500,
             transitionInterval: 7500,
@@ -42,35 +42,35 @@
              * PREPARAR SLIDER
              *******************************************************************/
             /* NAVEGADOR DE BOLITAS */
-            var navCount = '<div class="ss-nav-container">';
+            var navCount = '<div class="as-nav-cont">';
             for(var i=0; i<slideElements.length; i++)
             {
                 var ssNavSelected = '';
                 if (i==0)
-                    ssNavSelected = ' ss-nav-selected';
-                navCount += '<a href="javascript:;" class="ss-nav-trigger'+ssNavSelected+'" data-index="'+i+'">&nbsp;</a>';
+                    ssNavSelected = ' as-nav-sel';
+                navCount += '<a href="javascript:;" class="as-nav-trig'+ssNavSelected+'" data-index="'+i+'">&nbsp;</a>';
             }
             navCount += '</div>';
             /* CONFIGURAR MARKUP HTML */
 			var commonDimensions = {width: itemWidth+'px',height: itemHeight + 'px'};
-            slideElements.wrap('<li class="ss-list-item"></li>').parent() /* .ss-list-item selected */
-            .wrapAll('<div class="ss-container"><ul class="ss-list-container"></ul></div>')
-            .css(commonDimensions).parent()/* ul.ss-list-container */
+            slideElements.wrap('<li class="as-list-item"></li>').parent() /* .as-list-item selected */
+            .wrapAll('<div class="as-cont"><ul class="as-list-cont"></ul></div>')
+            .css(commonDimensions).parent()/* ul.as-list-cont */
             .css({
                 width: listMaxWidth+'px',
                 height: itemHeight + 'px'
-            }).parent() /* .ss-container selected */
+            }).parent() /* .as-cont selected */
             .css(commonDimensions).parent() /* $(this) selected */
 			.css(commonDimensions)
-            .addClass('ss-main-container')
+            .addClass('as-main-cont')
             .append($(navCount))
-            .append('<a href="javascript:;" data-type="previous" class="ss-control ss-control-previous">&laquo;</a><a href="javascript:;" data-type="next" class="ss-control ss-control-next">&raquo;</a>');
+            .append('<a href="javascript:;" data-type="previous" class="as-control as-control-prev">&laquo;</a><a href="javascript:;" data-type="next" class="as-control as-control-next">&raquo;</a>');
 
             /*******************************************************************
              * VARIABLES CON EL SLIDER PREPARADO
              *******************************************************************/
-            var sliderBox = $('ul.ss-list-container',$this);
-            var navTriggers = $('a.ss-nav-trigger',$this);
+            var sliderBox = $('ul.as-list-cont',$this);
+            var navTriggers = $('a.as-nav-trig',$this);
             /*******************************************************************
              * EVENTOS
              *******************************************************************/
@@ -82,15 +82,15 @@
                 if (s.transitionInterval && transInterval && realClick)
                     clearInterval(transInterval);
 
-                navTriggers.removeClass('ss-nav-selected');
-                $(this).addClass('ss-nav-selected');
+                navTriggers.removeClass('as-nav-sel');
+                $(this).addClass('as-nav-sel');
                 selItemIndex = data.index;
                 sliderBox.animate({
                     'left':(data.index * itemWidth * -1) + 'px'
                 },s.speed);
             });
 
-            $('a.ss-control',$this).click(function(){
+            $('a.as-control',$this).click(function(){
                 var data = $(this).data();
                 var index = null;
 
