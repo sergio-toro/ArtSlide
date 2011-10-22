@@ -1,3 +1,10 @@
+/* ArtSlide v0.1 Alpha - A light-weight, customizable lightbox plugin for jQuery
+ *
+ * Copyright (c) 2011 Sergio Toro - sergio@art4websites.com
+ * Pluguin url: http://blog.art4websites.com/2011/jquery-artslide-pluguin/
+ *
+ * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+ */
 (function($){
     $.fn.simpleslide = function(options){
         var s = {
@@ -15,10 +22,10 @@
                 $.extend(true,s,options);
             var $this = $(this);
             var slideElements = $('> *',$this);
-			
+
 			if (slideElements.length == 0)
 				return false;
-			
+
             var itemWidth = $.type(s.width) === 'function' ? s.width.apply(this, arguments) : s.width;
             var itemHeight = $.type(s.height) === 'function' ? s.height.apply(this, arguments) : s.height;
             var transInterval;
@@ -110,7 +117,7 @@
             $this.show();
 
             /*******************************************************************
-             * TRANSICIÓN AUTOMÁTICA
+             * TRANSICIï¿½N AUTOMï¿½TICA
              *******************************************************************/
             if (s.transitionInterval){
                 if (s.transitionInterval <= s.speed)
