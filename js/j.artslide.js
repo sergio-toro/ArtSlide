@@ -1,4 +1,4 @@
-/* ArtSlide v0.1 - A light-weight, customizable lightbox plugin for jQuery
+/* ArtSlide v0.2 - A light-weight, customizable lightbox plugin for jQuery
  *
  * Copyright (c) 2011 Sergio Toro - sergio@art4websites.com
  * Pluguin url: http://blog.art4websites.com/2011/artslide-simple-jquery-slideshow-plugin/
@@ -17,7 +17,12 @@
             height: function(){
                 var itemHeight = $('> *',this).height();
                 return itemHeight ? itemHeight : $(this).height();
-            }
+            },
+            navLinks: true,
+            prevArrow: true,
+            prevText: '&laquo;',
+            nextArrow: true,
+            nextText: '&raquo;'
         };
         return this.each(function(){
             var defset = s;
@@ -40,13 +45,15 @@
                 itemHeight = defset.height();
 
             var listMaxWidth = itemWidth * slideElements.length;
+            var prevArrow = s.prevArrow ? '<a href="javascript:;" data-type="previous" class="as-control as-control-prev">'+(s.prevText ? s.prevText : '&nbsp;')+'</a>': '';
+            var nextArrow = s.nextArrow ? '<a href="javascript:;" data-type="next" class="as-control as-control-next">'+(s.nextText ? s.nextText : '&nbsp;')+'</a>' : '';
 
             var selItemIndex = 0;
             /*******************************************************************
              * PREPARAR SLIDER
              *******************************************************************/
             /* NAVEGADOR DE BOLITAS */
-            var navCount = '<div class="as-nav-cont">';
+            var navCount = '<div class="as-nav-cont '+(s.navLinks ? '' : 'as-nav-hidden')+'">';
             for(var i=0; i<slideElements.length; i++)
             {
                 var ssNavSelected = '';
@@ -59,7 +66,7 @@
             var commonDimensions = {
                 width: itemWidth+'px',
                 height: itemHeight + 'px'
-                };
+            };
             slideElements.wrap('<li class="as-list-item"></li>').parent() /* .as-list-item selected */
             .wrapAll('<div class="as-cont"><ul class="as-list-cont"></ul></div>')
             .css(commonDimensions).parent()/* ul.as-list-cont */
@@ -71,7 +78,7 @@
             .css(commonDimensions)
             .addClass('as-main-cont')
             .append($(navCount))
-            .append('<a href="javascript:;" data-type="previous" class="as-control as-control-prev">&laquo;</a><a href="javascript:;" data-type="next" class="as-control as-control-next">&raquo;</a>');
+            .append(prevArrow + ' ' + nextArrow);
 
             /*******************************************************************
              * VARIABLES CON EL SLIDER PREPARADO

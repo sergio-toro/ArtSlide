@@ -18,6 +18,7 @@
 .as-main-cont .as-cont { position: relative; overflow: hidden; }
 .as-main-cont .as-cont ul.as-list-cont { position: absolute; margin: 0px; padding: 0px; list-style: none; top: 0px; left: 0px; clear: both; }
 .as-main-cont .as-cont li.as-list-item { display: block; margin: 0px; padding: 0px; list-style: none; float: left; }
-.as-main-cont div.as-nav-cont{ position: absolute; }
+.as-main-cont .as-nav-cont{ position: absolute; }
+.as-main-cont .as-nav-hidden{ display: none; }
 .as-main-cont a.as-nav-trig { outline: none; display: block; float: left; }
 .as-main-cont a.as-control { display: block; position: absolute; }
