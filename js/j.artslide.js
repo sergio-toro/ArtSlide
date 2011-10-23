@@ -19,9 +19,9 @@
                 return itemHeight ? itemHeight : $(this).height();
             },
             navLinks: true,
-            prevArrow: true,
+            prevControl: true,
             prevText: '&laquo;',
-            nextArrow: true,
+            nextControl: true,
             nextText: '&raquo;'
         };
         return this.each(function(){
@@ -45,8 +45,8 @@
                 itemHeight = defset.height();
 
             var listMaxWidth = itemWidth * slideElements.length;
-            var prevArrow = s.prevArrow ? '<a href="javascript:;" data-type="previous" class="as-control as-control-prev">'+(s.prevText ? s.prevText : '&nbsp;')+'</a>': '';
-            var nextArrow = s.nextArrow ? '<a href="javascript:;" data-type="next" class="as-control as-control-next">'+(s.nextText ? s.nextText : '&nbsp;')+'</a>' : '';
+            var prevControl = s.prevControl ? '<a href="javascript:;" data-type="previous" class="as-control as-control-prev">'+(s.prevText ? s.prevText : '&nbsp;')+'</a>': '';
+            var nextControl = s.nextControl ? '<a href="javascript:;" data-type="next" class="as-control as-control-next">'+(s.nextText ? s.nextText : '&nbsp;')+'</a>' : '';
 
             var selItemIndex = 0;
             /*******************************************************************
@@ -78,7 +78,7 @@
             .css(commonDimensions)
             .addClass('as-main-cont')
             .append($(navCount))
-            .append(prevArrow + ' ' + nextArrow);
+            .append(prevControl + ' ' + nextControl);
 
             /*******************************************************************
              * VARIABLES CON EL SLIDER PREPARADO
