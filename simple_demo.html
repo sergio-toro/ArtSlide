@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Simple slide</title>
+
+        <link rel="stylesheet" type="text/css" href="css/j.artslide.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/j.artslide.js"></script>
+
+        <style type="text/css">
+            /*********************************************************************
+             * REQUIRED CSS (FIX)
+             * Prevent show HTML inside slideshow without artslide loaded
+             ********************************************************************/
+            div.featured_products{ display: none; }
+
+            /*********************************************************************
+             * STYLESHEET FOR DEMO
+             ********************************************************************/
+            body { padding: 100px; }
+            h1 { text-align: center; }
+            div.featured_products{ margin: auto; display: none; }
+        </style>
+    </head>
+    <body>
+        <h1>Simple demo (minimal setup)</h1>
+
+        <div class="featured_products">
+            <img src="img/sample4.jpg" alt="Sample" />
+            <img src="img/sample3.jpg" alt="Sample" />
+            <img src="img/sample5.jpg" alt="Sample" />
+            <img src="img/sample6.jpg" alt="Sample" />
+        </div>
+
+        <script type="text/javascript">
+            $(function(){
+                /*********************************************************************
+                 * INIT simpleslide
+                 ********************************************************************/
+                $("div.featured_products").artslide({ width: 650, height: 250 });
+            });
+        </script>
+    </body>
+</html>

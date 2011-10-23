@@ -1,7 +1,7 @@
-/* ArtSlide v0.1 Alpha - A light-weight, customizable lightbox plugin for jQuery
+/* ArtSlide v0.1 - A light-weight, customizable lightbox plugin for jQuery
  *
  * Copyright (c) 2011 Sergio Toro - sergio@art4websites.com
- * Pluguin url: http://blog.art4websites.com/2011/jquery-artslide-pluguin/
+ * Pluguin url: http://blog.art4websites.com/2011/artslide-simple-jquery-slideshow-plugin/
  *
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  */
@@ -11,30 +11,34 @@
             speed: 500,
             transitionInterval: 7500,
             width: function(){
-                return $('> *',this).width();
+                var itemWidth = $('> *',this).width();
+                return itemWidth ? itemWidth : $(this).width();
             },
             height: function(){
-                return $('> *',this).height();
+                var itemHeight = $('> *',this).height();
+                return itemHeight ? itemHeight : $(this).height();
             }
         };
         return this.each(function(){
+            var defset = s;
             if( options )
                 $.extend(true,s,options);
             var $this = $(this);
             var slideElements = $('> *',$this);
 
-			if (slideElements.length == 0)
-				return false;
+            if (slideElements.length == 0)
+                return;
 
-            var itemWidth = $.type(s.width) === 'function' ? s.width.apply(this, arguments) : s.width;
-            var itemHeight = $.type(s.height) === 'function' ? s.height.apply(this, arguments) : s.height;
+            var itemWidth = $.type(s.width) === 'function' ? s.width.apply(this, arguments) : parseInt(s.width);
+            var itemHeight = $.type(s.height) === 'function' ? s.height.apply(this, arguments) : parseInt(s.height);
             var transInterval;
             var realClick = true;
 
             if (!itemWidth)
-                itemWidth = slideElements.width();
+                itemWidth = defset.width();
             if (!itemHeight)
-                itemHeight = slideElements.height();
+                itemHeight = defset.height();
+
             var listMaxWidth = itemWidth * slideElements.length;
 
             var selItemIndex = 0;
@@ -52,7 +56,10 @@
             }
             navCount += '</div>';
             /* CONFIGURAR MARKUP HTML */
-			var commonDimensions = {width: itemWidth+'px',height: itemHeight + 'px'};
+            var commonDimensions = {
+                width: itemWidth+'px',
+                height: itemHeight + 'px'
+                };
             slideElements.wrap('<li class="as-list-item"></li>').parent() /* .as-list-item selected */
             .wrapAll('<div class="as-cont"><ul class="as-list-cont"></ul></div>')
             .css(commonDimensions).parent()/* ul.as-list-cont */
@@ -61,7 +68,7 @@
                 height: itemHeight + 'px'
             }).parent() /* .as-cont selected */
             .css(commonDimensions).parent() /* $(this) selected */
-			.css(commonDimensions)
+            .css(commonDimensions)
             .addClass('as-main-cont')
             .append($(navCount))
             .append('<a href="javascript:;" data-type="previous" class="as-control as-control-prev">&laquo;</a><a href="javascript:;" data-type="next" class="as-control as-control-next">&raquo;</a>');
@@ -117,7 +124,7 @@
             $this.show();
 
             /*******************************************************************
-             * TRANSICI�N AUTOM�TICA
+             * TRANSICIÓN AUTOMÁTICA
              *******************************************************************/
             if (s.transitionInterval){
                 if (s.transitionInterval <= s.speed)

@@ -1,7 +1,7 @@
 /* User stylesheet */
-.as-main-cont { border: 2px solid #000; }
+.as-main-cont { border: 2px solid #000; box-shadow: 1px 1px 2px 0 #3F3F3F; -moz-box-shadow: 1px 1px 2px 0 #3F3F3F; -webkit-box-shadow: 1px 1px 2px 0 #3F3F3F; }
 .as-main-cont, .as-main-cont .as-cont{ border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
-.as-main-cont a.as-nav-trig { text-decoration: none; opacity: 0.7; background: #FFF; box-shadow: 1px 1px 2px 0 #000; }
+.as-main-cont a.as-nav-trig { border: 1px solid #3F3F3F; text-decoration: none; opacity: 0.7; background: #FFF; box-shadow: 1px 1px 2px 0 #000; }
 .as-main-cont a.as-nav-trig:last-child{ margin-right: 0px; }
 .as-main-cont a.as-nav-trig:hover, .as-main-cont a.as-nav-sel { opacity: 1; }
 

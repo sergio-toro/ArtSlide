@@ -10,47 +10,44 @@
 
         <style type="text/css">
             /*********************************************************************
-             * REQUIRED CSS TO WORK (if width and height are ommited at js method)
+             * REQUIRED CSS (FIX)
+             * Prevent show HTML inside slideshow without artslide loaded
              ********************************************************************/
-            div.example {
-                width: 800px;
-                height: 250px;
-            }
+            div.advanced_slideshow { display: none; }
+            div.featured_products { display: none; }
 
             /*********************************************************************
              * STYLESHEET FOR DEMO
              ********************************************************************/
             body { padding: 100px; }
-            div.example { margin: auto; width: 800px; height: 250px; }
+            div.advanced_slideshow, div.featured_products{ margin: auto; }
+            div.advanced_slideshow { width: 650px; height: 250px; }
 
+            h1{ text-align: center; }
             h2 { margin: 0 0 10px 0; }
-            p { margin: 0px; font: normal 14px/25px Arial; }
+            p { margin: 0px; font: normal 14px/22px Arial; }
 
-            .item { width: 750px; height: 175px; padding: 50px 25px 25px; }
+            .sample_background{ background: url(img/sample4.jpg) no-repeat top left; }
+            .white{ color: #FFF; }
+            .item { width: 600px; height: 175px; padding: 50px 25px 25px; }
             .darkred{ background: darkred; }
             .darkgreen{ background: darkgreen; }
             .darkgreen p, .darkred p, label,.darkred h2 { color: #FFF; }
-            .right_image{ float: right; margin: 0 0 10px 15px; }
         </style>
     </head>
     <body>
-        <!--
-            DEMO FOR COMPLEX SLIDE THE ONLY NEEDED MARKUP IS:
-            <div class="simpleslide">
-                <*></*>
-            </div>
-        -->
-        <div class="example">
-            <img src="img/large800x250.jpg" alt="Sample large image" />
+        <h1>Advanced demo (multiples instances and complex HTML)</h1>
+        <!-- advanced_slideshow with complex HTML -->
+        <div class="advanced_slideshow">
+            <img src="img/sample6.jpg" alt="Sample" />
             <div class="item">
                 <h2>Lorem ipsum dolor sit amet</h2>
                 <p>In pretium neque vitae ipsum rutrum nec tincidunt felis dapibus. <b>Ut cursus augue ac orci vehicula facilisis.</b> Proin lacinia condimentum tortor, at porttitor sem dignissim eget. Mauris eget nisl sit amet dui pellentesque mollis in non tortor. Praesent ligula diam, hendrerit eu rutrum ac, auctor vitae turpis. Nam sit amet enim vel risus dignissim luctus nec eu leo. Donec consequat imperdiet magna, quis consequat mauris pretium vulputate. Donec molestie blandit augue, placerat dapibus risus tristique nec. Proin in eros velit, vestibulum euismod neque. </p>
             </div>
-            <div class="item darkgreen">
-                <p><img src="img/small250x100.jpg" class="right_image" alt="Sample small image" />Praesent in urna a orci rutrum molestie at sollicitudin leo. Nunc a orci et leo placerat laoreet eget viverra risus. Integer ac nisl non mi tincidunt vulputate vitae nec augue. Vestibulum vel sem non quam porta adipiscing. Praesent vehicula hendrerit odio, vel sagittis felis porttitor et. Phasellus eros magna, pharetra in ultrices hendrerit, posuere et erat. Quisque id nibh risus. Mauris et velit non justo venenatis pellentesque et eu nibh. Proin ac purus magna. Ut orci nisl, mattis in mattis nec, blandit a ipsum. Phasellus non turpis neque, et vulputate nulla. Integer gravida neque vel nulla porta egestas. </p>
+            <div class="item sample_background">
+                <h2 class="white">Text with a background image </h2>
             </div>
             <div class="item darkred">
-                <img src="img/medium400x175.jpg" class="right_image" alt="Sample medium image" />
                 <h2>Lorem ipsum dolor sit amet</h2>
                 <form method="post" action="">
                     <label>Email:</label>
@@ -61,16 +58,42 @@
                     <br /><br />
                     <input type="submit" name="contact" value="Submit" />
                 </form>
-
             </div>
+            <img src="img/sample1.jpg" alt="Sample" />
         </div>
+        <!-- END advanced_slideshow with complex HTML -->
+
+        <br /><br /><br /><br />
+
+        <!-- custom options, multiples instances -->
+        <div class="featured_products">
+            <img src="img/sample4.jpg" alt="Sample" />
+            <img src="img/sample3.jpg" alt="Sample" />
+            <img src="img/sample5.jpg" alt="Sample" />
+            <img src="img/sample6.jpg" alt="Sample" />
+        </div>
+        <br /><br />
+        <div class="featured_products">
+            <img src="img/sample1.jpg" alt="Sample" />
+            <img src="img/sample2.jpg" alt="Sample" />
+            <img src="img/sample4.jpg" alt="Sample" />
+            <img src="img/sample6.jpg" alt="Sample" />
+        </div>
+        <!-- custom options, multiples instances -->
 
         <script type="text/javascript">
             $(function(){
                 /*********************************************************************
                  * INIT simpleslide
                  ********************************************************************/
-                $("div.example").artslide();
+                $("div.advanced_slideshow").artslide();
+
+                $("div.featured_products").artslide({
+                    width: 650,
+                    height: 250,
+                    speed: 350,
+                    transitionInterval: 3500
+                });
             });
         </script>
     </body>
