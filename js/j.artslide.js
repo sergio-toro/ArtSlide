@@ -1,4 +1,4 @@
-/* ArtSlide v0.2 - A light-weight, customizable lightbox plugin for jQuery
+/* ArtSlide v0.3 - A light-weight, customizable lightbox plugin for jQuery
  *
  * Copyright (c) 2011 Sergio Toro - sergio@art4websites.com
  * Pluguin url: http://blog.art4websites.com/2011/artslide-simple-jquery-slideshow-plugin/
@@ -68,7 +68,7 @@
                 height: itemHeight + 'px'
             };
             slideElements.wrap('<li class="as-list-item"></li>').parent() /* .as-list-item selected */
-            .wrapAll('<div class="as-cont"><ul class="as-list-cont"></ul></div>')
+            .wrapAll('<div class="as-cont as-loading"><ul class="as-list-cont"></ul></div>')
             .css(commonDimensions).parent()/* ul.as-list-cont */
             .css({
                 width: listMaxWidth+'px',
@@ -85,6 +85,41 @@
              *******************************************************************/
             var sliderBox = $('ul.as-list-cont',$this);
             var navTriggers = $('a.as-nav-trig',$this);
+            var controls = $('.as-control',$this);
+
+            /*******************************************************************
+             * CARGADOR DE IMAGENES
+             *******************************************************************/
+            var $images = $('img',sliderBox);
+            var maxImages = $images.length;
+            var loadedImages = 0;
+            var fallLoadingTimeout;
+            if(maxImages){
+                controls.hide();
+                navTriggers.hide();
+                sliderBox.hide();
+
+                $.each($images,function(index,img){
+                    if (!img.complete || (typeof img.naturalWidth != "undefined" && img.naturalWidth== 0))
+                        return;
+                    loadedImages++;
+                });
+                if (loadedImages == maxImages){
+                    elements_loaded();
+                }
+                else{
+                    $images.load(function(){
+                        loadedImages++;
+                        if (loadedImages == maxImages){
+                            elements_loaded();
+                            clearTimeout(fallLoadingTimeout);
+                        }
+                    });
+                    fallLoadingTimeout = setTimeout(elements_loaded,(maxImages*1000) + 1500);
+                }
+            }
+
+            $this.show();
             /*******************************************************************
              * EVENTOS
              *******************************************************************/
@@ -126,11 +161,6 @@
             });
 
             /*******************************************************************
-             * MOSTRAR EL SLIDER SI ESTA OCULTO
-             *******************************************************************/
-            $this.show();
-
-            /*******************************************************************
              * TRANSICIÓN AUTOMÁTICA
              *******************************************************************/
             if (s.transitionInterval){
@@ -144,6 +174,12 @@
                     $(navTriggers[index],$this).trigger('click');
                     realClick = true;
                 },s.transitionInterval);
+            }
+            function elements_loaded(){
+                controls.show();
+                navTriggers.show();
+                sliderBox.show();
+                $('div.as-cont',$this).removeClass('as-loading');
             }
         });
     };
