@@ -1,7 +1,7 @@
 /* ArtSlide v0.3 - A light-weight, customizable lightbox plugin for jQuery
  *
  * Copyright (c) 2011 Sergio Toro - sergio@art4websites.com
- * Pluguin url: http://blog.art4websites.com/2011/artslide-simple-jquery-slideshow-plugin/
+ * Pluguin url: http://blog.art4websites.com/artslide-simple-slideshow-para-jquery/
  *
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
  */
