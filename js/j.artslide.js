@@ -165,7 +165,7 @@
              *******************************************************************/
             if (s.transitionInterval){
                 if (s.transitionInterval <= s.speed)
-                    $.error('Simpleslide: The speed of the transition can not be less than or equal to the speed of movement.');
+                    $.error('ArtSlide: The speed of the transition can not be less than or equal to the speed of movement.');
                 transInterval = setInterval(function(){
                     var index = selItemIndex +1;
                     if (selItemIndex >= slideElements.length-1)
